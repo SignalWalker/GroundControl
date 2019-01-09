@@ -1,0 +1,8 @@
+[package]
+name = "ground_control"
+version = "0.1.0"
+authors = ["Ash Walker <ash@ashwalker.net>"]
+
+[dependencies]
+architect = { git = "https://github.com/SignalWalker/Architect" }
+winit = "^0.17"

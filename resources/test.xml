@@ -1,0 +1,10 @@
+<settings>
+   <!--Legal defaults: *, specific, verbose-->
+   <control action="test">
+      <!--These are the default values used when default="specific" (this is the implicit value)-->
+      <key state="Pressed" scan="40" virtual="*" shift="no" ctrl="no" alt="no" logo="no"/>
+   </control>
+   <control action="default_test">
+      <key scan="40"/>
+   </control>
+</settings>
