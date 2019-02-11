@@ -1,4 +1,3 @@
-#![feature(vec_remove_item)]
 pub extern crate architect;
 pub extern crate winit;
 
