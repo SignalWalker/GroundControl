@@ -105,6 +105,7 @@ impl Default for KeyMap {
 pub struct ControlMason {
     pub key_tree: Tree<KeyMap>,
     pub active: HashSet<String>,
+    pub settings: HashMap<String, String>,
 }
 
 impl Default for ControlMason {
@@ -112,6 +113,7 @@ impl Default for ControlMason {
         ControlMason {
             key_tree: Tree::with_root(KeyMap::default()),
             active: HashSet::new(),
+            settings: HashMap::new(),
         }
     }
 }
@@ -255,6 +257,27 @@ impl StoneMason for ControlMason {
                 }
             }
             res.insert(*c);
+        }
+        for s in map.get("setting").unwrap() {
+            let set = &arch.stones[*s];
+            let el = set.value.as_el();
+            self.settings.insert(
+                match el.attr.get("id") {
+                    Some(i) => String::from_attr(i, &arch.stones, *s).unwrap(),
+                    None => {
+                        arch.errors.push(StoneError::MissingAttr("id".into()));
+                        continue;
+                    }
+                },
+                match el.attr.get("val") {
+                    Some(v) => String::from_attr(v, &arch.stones, *s).unwrap(),
+                    None => {
+                        arch.errors.push(StoneError::MissingAttr("val".into()));
+                        continue;
+                    }
+                },
+            );
+            res.insert(*s);
         }
 
         res
