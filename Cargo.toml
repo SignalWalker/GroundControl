@@ -2,7 +2,8 @@
 name = "ground_control"
 version = "0.1.0"
 authors = ["Ash Walker <ash@ashwalker.net>"]
+edition = "2018"
 
 [dependencies]
-architect = { git = "https://github.com/SignalWalker/Architect" }
+architect = { git = "https://github.com/SignalWalker/Architect", rev = "4a99de0305e1c035831bbba2684258044d6fe722" }
 winit = "^0.19"
