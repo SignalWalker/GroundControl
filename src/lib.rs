@@ -5,7 +5,10 @@ use architect::birch::Tree;
 use architect::*;
 use std::collections::HashMap;
 use std::collections::HashSet;
-use winit::*;
+use winit::event::ElementState;
+use winit::event::KeyboardInput;
+use winit::event::ScanCode;
+use winit::event::VirtualKeyCode;
 
 /// Eq, Hash, and PartialEq not implemented by winit::KeyboardInput, so...
 #[derive(PartialEq, Eq, Hash, Clone, Debug)]
